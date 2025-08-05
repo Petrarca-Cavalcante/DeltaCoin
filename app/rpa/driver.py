@@ -97,4 +97,5 @@ class Webdriver:
                 )
     
     def kill(self):
+        self.log.write("Killing bot/rpa", level="Kill switch RPA", f_log=True)
         self.driver.close()
