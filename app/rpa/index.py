@@ -31,16 +31,18 @@ class DeltaCoin:
         try:
             request = requests.get(url)
             if request.ok:
-                self.log.write("Request done!")
+                self.log.write("Request done!", level="API")
                 request = request.json()
                 request = request["conteudo"]
             return request
         except Exception:
-            self.log.write("Error at requesting API-s")
+            self.log.write("Error at requesting API-s", level="API")
             raise Exception("Error at requesting API-s")
 
     @property
     def rpa(self):
+        # self.log.write("Booting WebDriver to extract data as RPA", level="RPA", f_log=True)
+        
         cd = Webdriver()
         wd = cd.driver
         wd.get("https://www.bcb.gov.br")
