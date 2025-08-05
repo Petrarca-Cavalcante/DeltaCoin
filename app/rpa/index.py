@@ -63,3 +63,26 @@ class DeltaCoin:
         cd.kill()
         return prices
 
+
+    def to_pdf(self, data):
+        df = pd.DataFrame(data)
+
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_font("Arial", size=10)
+
+        col_width = pdf.w / (len(df.columns))  # largura proporcional
+
+        # Cabeçalhos
+        for col in df.columns:
+            pdf.cell(col_width, 10, col, border=1)
+        pdf.ln()
+
+        # Dados
+        for _, row in df.iterrows():
+            for item in row:
+                pdf.cell(col_width, 10, str(item), border=1)
+            pdf.ln()
+
+        # Salvar
+        pdf.output(self.pdf_path)
