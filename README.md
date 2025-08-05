@@ -37,6 +37,7 @@
     `pip install -r requirements.txt`
 
 ## Inicialização
-
+- Preencher os dados necessários no arquivo .env.example
+- Apagar ".example" do nome do arquivo para que o python encontre as variáveis de ambiente .env
 - Ativar o venv
 - Rodar a main com algum dos modos ativados, os dois também funcionam normalmente caso sejam usados juntos
