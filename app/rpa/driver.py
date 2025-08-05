@@ -95,3 +95,6 @@ class Webdriver:
                 self.log.write(
                 f"Clicakble not found, but it was expected to: {xpath}", level="S_ERROR"
                 )
+    
+    def kill(self):
+        self.driver.close()
