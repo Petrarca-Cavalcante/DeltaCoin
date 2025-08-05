@@ -1,6 +1,6 @@
 import requests
 
-url = 
+url = "https://bcb.gov.br/api/servico/sitebcb/indicadorCambio"
 
 
 response = requests.get(url)

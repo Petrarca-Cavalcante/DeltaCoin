@@ -6,7 +6,7 @@ from email.message import EmailMessage
 def enviar_email(destinatario, assunto, corpo, caminho_anexo):
     # Dados do remetente
     remetente = "pedropetrarcar@gmail.com"
-    senha = "XXXXXXX"  # veja abaixo como obter
+    senha = "xktf njan qxeq wodn"  # veja abaixo como obter
 
     # Cria a mensagem
     mensagem = EmailMessage()
