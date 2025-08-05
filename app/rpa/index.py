@@ -41,16 +41,22 @@ class DeltaCoin:
 
     @property
     def rpa(self):
-        # self.log.write("Booting WebDriver to extract data as RPA", level="RPA", f_log=True)
-        
+        self.log.write("Booting WebDriver to extract data as RPA", level="RPA", f_log=True)
+        #
         cd = Webdriver()
         wd = cd.driver
         wd.get("https://www.bcb.gov.br")
-
+        self.log.write("Accessed - https://www.bcb.gov.br !", level="RPA")
+        #
+        
         # ENCONTRA TABELAS DE COTAÇÃO
+        self.log.write("Looking for price tables", level="RPA")
         tables = cd.find_many("//div[@class='componente cotacao']//table") or []
-        prices = []
+        if not tables:
+            self.log.write("Tables not found or empty", level="RPA")
+        #            
 
+        prices = []
         for table in tables:
             # CAPTURA CABEÇALHOS E CONTEÚDOS
             headers = cd.find_in(table, "./thead/tr/th")
@@ -58,7 +64,8 @@ class DeltaCoin:
             #
             # CASO NÃO SEJA ENCONTRADO, ELE É "PULADO"
             if not headers or not tds:
-                # > Adicionar log e meio de "recuperação" da tarefa perdida
+                # > Adicionar meio de "recuperação" da tarefa perdida
+                self.log.write(f"Headers or Rows from price table are missing! SKIPPING! \n> {headers} | {tds}", level="RPA")
                 continue
             #
             coin = headers[0].text
@@ -70,6 +77,8 @@ class DeltaCoin:
                     "Atualizado_em": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 })
             #
+        self.log.write("RPA ran trought price table/list", level="RPA")
+        #
         cd.kill()
         return prices
 
