@@ -13,6 +13,7 @@ class App:
         self.log = Log("App", print_else=True)
 
     def from_api(self):
+        self.log.init_log("Booting automation as API consumer")
         self.log.write("Running app by api method", f_log=True, level="App.from_api")
         app = DeltaCoin(os.getenv("API_PDF_PATH"))
         request = app.api
@@ -28,7 +29,9 @@ class App:
 
 
     def from_rpa(self):
+        self.log.init_log("Booting automation as RPA")
         self.log.write("Running app by rpa method", f_log=True, level="App.from_rpa")
+        #
         app = DeltaCoin(os.getenv("RPA_PDF_PATH"))
         request = app.rpa
         self.log.write("Request done", level="App.from_rpa")
