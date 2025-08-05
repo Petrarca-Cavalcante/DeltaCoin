@@ -70,10 +70,12 @@ class DeltaCoin:
             #
             coin = headers[0].text
             if coin not in prices:
-                prices.append({
+                   prices.append({
                     "Moeda": coin,
-                    "Compra":tds[4].text,
-                    "Venda": tds[5].text,
+                    "compra_fechamento": tds[1].text,
+                    "venda_fechamento": tds[2].text,
+                    "compra_intermediaria":tds[4].text,
+                    "venda_intermediaria": tds[5].text,
                     "Atualizado_em": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 })
             #
@@ -88,7 +90,7 @@ class DeltaCoin:
         df = pd.DataFrame(data)
 
         self.log.write("Defining proportions of pdf grid.", level="to_pdf")
-        pdf = FPDF()
+        pdf = FPDF(orientation="landscape")
         pdf.add_page()
         pdf.set_font("Arial", size=10)
 

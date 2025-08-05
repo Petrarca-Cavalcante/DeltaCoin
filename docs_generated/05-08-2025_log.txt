@@ -1,0 +1,109 @@
+
+
+
+[ 16:35:09 ] [========================= Booting automation as API consumer ==============================] 
+
+
+[ 16:35:09 ] [          App          ]  App.from_api - Running app by api method
+
+[ 16:35:09 ] [       DeltaCoin       ]      API      - Requesting prices straight from API
+[ 16:35:09 ] [       DeltaCoin       ]      API      - Request done!
+[ 16:35:09 ] [          App          ]  App.from_api - Request done
+[ 16:35:09 ] [          App          ]  App.from_api - Writing into pdf.
+
+[ 16:35:09 ] [       DeltaCoin       ]     to_pdf    - Starting .pdf generation.
+[ 16:35:09 ] [       DeltaCoin       ]     to_pdf    - Defining proportions of pdf grid.
+[ 16:35:09 ] [       DeltaCoin       ]     to_pdf    - Setting headers of pdf.
+[ 16:35:09 ] [       DeltaCoin       ]     to_pdf    - Inserting data into pdf.
+[ 16:35:09 ] [       DeltaCoin       ]     to_pdf    - Writing pdf as > docs_generated/cotacao_metodo_API.pdf
+[ 16:35:09 ] [          App          ]  App.from_api - Done writing into pdf.
+[ 16:35:09 ] [          App          ]  App.from_api - Prepairing to send att by E-mail!
+
+[ 16:35:09 ] [       DeltaCoin       ]      mail     - Starting mailing pdf generated.
+[ 16:35:09 ] [       DeltaCoin       ]      mail     - Message creation
+[ 16:35:09 ] [       DeltaCoin       ]      mail     - Pdf Indexing
+[ 16:35:09 ] [       DeltaCoin       ]      mail     - Preparing to send email!
+[ 16:35:13 ] [       DeltaCoin       ]      mail     - E-mail sent successfully!
+[ 16:35:13 ] [          App          ]  App.from_api - App - from_api method over!
+
+
+
+[ 16:35:13 ] [========================= Booting automation as RPA ==============================] 
+
+
+[ 16:35:13 ] [          App          ]  App.from_rpa - Running app by rpa method
+
+[ 16:35:13 ] [       DeltaCoin       ]      RPA      - Booting WebDriver to extract data as RPA
+[ 16:35:21 ] [       DeltaCoin       ]      RPA      - Accessed - https://www.bcb.gov.br !
+[ 16:35:21 ] [       DeltaCoin       ]      RPA      - Looking for price tables
+[ 16:35:21 ] [       Webdriver       ]     FIND_C    - Finding clickable: //div[@class='componente cotacao']//table
+[ 16:35:22 ] [       Webdriver       ]    FOUND_C    - Clickable found: //div[@class='componente cotacao']//table
+[ 16:35:22 ] [       Webdriver       ]     FIND_C    - Finding clickable: ./thead/tr/th
+[ 16:35:22 ] [       Webdriver       ]    FOUND_C    - Clickable found: ./thead/tr/th
+[ 16:35:22 ] [       Webdriver       ]     FIND_C    - Finding clickable: ./tbody/tr/td
+[ 16:35:22 ] [       Webdriver       ]    FOUND_C    - Clickable found: ./tbody/tr/td
+[ 16:35:22 ] [       Webdriver       ]     FIND_C    - Finding clickable: ./thead/tr/th
+[ 16:35:22 ] [       Webdriver       ]    FOUND_C    - Clickable found: ./thead/tr/th
+[ 16:35:22 ] [       Webdriver       ]     FIND_C    - Finding clickable: ./tbody/tr/td
+[ 16:35:22 ] [       Webdriver       ]    FOUND_C    - Clickable found: ./tbody/tr/td
+[ 16:35:22 ] [       DeltaCoin       ]      RPA      - RPA ran trought price table/list
+
+[ 16:35:22 ] [       Webdriver       ] Kill switch RPA - Killing bot/rpa
+[ 16:35:23 ] [          App          ]  App.from_rpa - RPA done
+[ 16:35:23 ] [          App          ]  App.from_rpa - Writing into pdf.
+
+[ 16:35:23 ] [       DeltaCoin       ]     to_pdf    - Starting .pdf generation.
+[ 16:35:23 ] [       DeltaCoin       ]     to_pdf    - Defining proportions of pdf grid.
+[ 16:35:23 ] [       DeltaCoin       ]     to_pdf    - Setting headers of pdf.
+[ 16:35:23 ] [       DeltaCoin       ]     to_pdf    - Inserting data into pdf.
+[ 16:35:23 ] [       DeltaCoin       ]     to_pdf    - Writing pdf as > docs_generated/cotacao_metodo_RPA.pdf
+[ 16:35:23 ] [          App          ]  App.from_rpa - Done writing into pdf.
+[ 16:35:23 ] [          App          ]  App.from_api - Prepairing to send att by E-mail!
+
+[ 16:35:23 ] [       DeltaCoin       ]      mail     - Starting mailing pdf generated.
+[ 16:35:23 ] [       DeltaCoin       ]      mail     - Message creation
+[ 16:35:23 ] [       DeltaCoin       ]      mail     - Pdf Indexing
+[ 16:35:23 ] [       DeltaCoin       ]      mail     - Preparing to send email!
+[ 16:35:26 ] [       DeltaCoin       ]      mail     - E-mail sent successfully!
+[ 16:35:26 ] [          App          ]  App.from_api - App - from_rpa method over!
+
+
+
+[ 16:36:13 ] [========================= Booting automation as RPA ==============================] 
+
+
+[ 16:36:13 ] [          App          ]  App.from_rpa - Running app by rpa method
+
+[ 16:36:13 ] [       DeltaCoin       ]      RPA      - Booting WebDriver to extract data as RPA
+[ 16:36:20 ] [       DeltaCoin       ]      RPA      - Accessed - https://www.bcb.gov.br !
+[ 16:36:20 ] [       DeltaCoin       ]      RPA      - Looking for price tables
+[ 16:36:20 ] [       Webdriver       ]     FIND_C    - Finding clickable: //div[@class='componente cotacao']//table
+[ 16:36:20 ] [       Webdriver       ]    FOUND_C    - Clickable found: //div[@class='componente cotacao']//table
+[ 16:36:20 ] [       Webdriver       ]     FIND_C    - Finding clickable: ./thead/tr/th
+[ 16:36:20 ] [       Webdriver       ]    FOUND_C    - Clickable found: ./thead/tr/th
+[ 16:36:21 ] [       Webdriver       ]     FIND_C    - Finding clickable: ./tbody/tr/td
+[ 16:36:21 ] [       Webdriver       ]    FOUND_C    - Clickable found: ./tbody/tr/td
+[ 16:36:21 ] [       Webdriver       ]     FIND_C    - Finding clickable: ./thead/tr/th
+[ 16:36:21 ] [       Webdriver       ]    FOUND_C    - Clickable found: ./thead/tr/th
+[ 16:36:21 ] [       Webdriver       ]     FIND_C    - Finding clickable: ./tbody/tr/td
+[ 16:36:21 ] [       Webdriver       ]    FOUND_C    - Clickable found: ./tbody/tr/td
+[ 16:36:21 ] [       DeltaCoin       ]      RPA      - RPA ran trought price table/list
+
+[ 16:36:21 ] [       Webdriver       ] Kill switch RPA - Killing bot/rpa
+[ 16:36:22 ] [          App          ]  App.from_rpa - RPA done
+[ 16:36:22 ] [          App          ]  App.from_rpa - Writing into pdf.
+
+[ 16:36:22 ] [       DeltaCoin       ]     to_pdf    - Starting .pdf generation.
+[ 16:36:22 ] [       DeltaCoin       ]     to_pdf    - Defining proportions of pdf grid.
+[ 16:36:22 ] [       DeltaCoin       ]     to_pdf    - Setting headers of pdf.
+[ 16:36:22 ] [       DeltaCoin       ]     to_pdf    - Inserting data into pdf.
+[ 16:36:22 ] [       DeltaCoin       ]     to_pdf    - Writing pdf as > docs_generated/cotacao_metodo_RPA.pdf
+[ 16:36:22 ] [          App          ]  App.from_rpa - Done writing into pdf.
+[ 16:36:22 ] [          App          ]  App.from_api - Prepairing to send att by E-mail!
+
+[ 16:36:22 ] [       DeltaCoin       ]      mail     - Starting mailing pdf generated.
+[ 16:36:22 ] [       DeltaCoin       ]      mail     - Message creation
+[ 16:36:24 ] [       DeltaCoin       ]      mail     - Pdf Indexing
+[ 16:36:24 ] [       DeltaCoin       ]      mail     - Preparing to send email!
+[ 16:36:27 ] [       DeltaCoin       ]      mail     - E-mail sent successfully!
+[ 16:36:27 ] [          App          ]  App.from_api - App - from_rpa method over!
