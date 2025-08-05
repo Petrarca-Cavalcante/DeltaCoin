@@ -9,11 +9,11 @@ from fpdf import FPDF
 import smtplib
 import ssl
 from email.message import EmailMessage
-from driver import Webdriver
-from app.log.index import Log
+from app.rpa.driver import Webdriver
+
+from app.log import Log
 
 dotenv.load_dotenv()
-
 
 
 
@@ -112,36 +112,36 @@ class DeltaCoin:
         pdf.output(self.pdf_path)
     
     
-    def mail(self, destinatario, assunto, corpo):
+    def mail(self, destiny, subject, body):
         self.log.write("Starting mailing pdf generated.", level="mail", f_log=True)
         
         remetente = os.getenv("EMAIL_SENDER") or ""
         senha = os.getenv("GOOGLE_APP_PASS") or ""
 
-        # Cria a mensagem
+        # Criate message
         self.log.write("Message creation", level="mail")
         
-        mensagem = EmailMessage()
-        mensagem["From"] = remetente
-        mensagem["To"] = destinatario
-        mensagem["Subject"] = assunto
-        mensagem.set_content(corpo)
+        message = EmailMessage()
+        message["From"] = remetente
+        message["To"] = destiny
+        message["Subject"] = subject
+        message.set_content(body)
         #
-        # Lê e anexa o PDF
+        # Reads and indexes pdf
         self.log.write("Pdf Indexing", level="mail")
         with open(self.pdf_path, "rb") as f:
             conteudo = f.read()
             nome_arquivo = f.name.split("/")[-1]
-            mensagem.add_attachment(
+            message.add_attachment(
                 conteudo, maintype="application", subtype="pdf", filename=nome_arquivo
             )
 
         self.log.write("Preparing to send email!", level="mail")
-        # Envia via SMTP Gmail
+        # Send via SMTP Gmail
         contexto = ssl.create_default_context()
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=contexto) as servidor:
             servidor.login(remetente, senha)
-            servidor.send_message(mensagem)
+            servidor.send_message(message)
 
         self.log.write("E-mail sent successfully!", level="mail")
         

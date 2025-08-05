@@ -1,0 +1,20 @@
+
+[ 14:43:26 ] [          App          ]  App.from_api - Running app by api method
+
+[ 14:43:26 ] [       DeltaCoin       ]      API      - Requesting prices straight from API
+[ 14:43:26 ] [       DeltaCoin       ]      API      - Request done!
+[ 14:43:26 ] [          App          ]  App.from_api - Request done
+[ 14:43:26 ] [          App          ]  App.from_api - Writing into pdf.
+
+[ 14:43:26 ] [       DeltaCoin       ]     to_pdf    - Starting .pdf generation.
+[ 14:43:26 ] [       DeltaCoin       ]     to_pdf    - Defining proportions of pdf grid.
+[ 14:43:26 ] [       DeltaCoin       ]     to_pdf    - Setting headers of pdf.
+[ 14:43:26 ] [       DeltaCoin       ]     to_pdf    - Inserting data into pdf.
+[ 14:43:26 ] [       DeltaCoin       ]     to_pdf    - Writing pdf as > docs_generated/dataframe_saida_API.pdf
+[ 14:43:26 ] [          App          ]  App.from_api - Done writing into pdf.
+
+[ 14:43:26 ] [       DeltaCoin       ]      mail     - Starting mailing pdf generated.
+[ 14:43:26 ] [       DeltaCoin       ]      mail     - Message creation
+[ 14:43:26 ] [       DeltaCoin       ]      mail     - Pdf Indexing
+[ 14:43:26 ] [       DeltaCoin       ]      mail     - Preparing to send email!
+[ 14:43:30 ] [       DeltaCoin       ]      mail     - E-mail sent successfully!
