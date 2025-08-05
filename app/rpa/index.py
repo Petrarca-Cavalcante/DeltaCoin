@@ -1,5 +1,7 @@
 """Class Rpa Module."""
 
+import os
+import dotenv
 import requests
 from datetime import datetime
 import pandas as pd
@@ -8,9 +10,11 @@ import smtplib
 import ssl
 from email.message import EmailMessage
 from driver import Webdriver
-import os
-import dotenv
+from app.log.index import Log
+
 dotenv.load_dotenv()
+
+
 
 
 class DeltaCoin:
@@ -18,17 +22,21 @@ class DeltaCoin:
 
     def __init__(self, pdf_path):
         self.pdf_path = pdf_path
+        self.log = Log("DeltaCoin", print_else=True)
 
     @property
     def api(self):
         url = "https://bcb.gov.br/api/servico/sitebcb/indicadorCambio"
+        self.log.write("Requesting prices straight from API", level="API", f_log=True)
         try:
             request = requests.get(url)
             if request.ok:
+                self.log.write("Request done!")
                 request = request.json()
                 request = request["conteudo"]
             return request
         except Exception:
+            self.log.write("Error at requesting API-s")
             raise Exception("Error at requesting API-s")
 
     @property
