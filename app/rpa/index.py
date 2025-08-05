@@ -84,19 +84,23 @@ class DeltaCoin:
 
 
     def to_pdf(self, data):
+        self.log.write("Starting .pdf generation.", level="to_pdf", f_log=True)
         df = pd.DataFrame(data)
 
+        self.log.write("Defining proportions of pdf grid.", level="to_pdf")
         pdf = FPDF()
         pdf.add_page()
         pdf.set_font("Arial", size=10)
 
         col_width = pdf.w / (len(df.columns))  # largura proporcional
 
+        self.log.write("Setting headers of pdf.", level="to_pdf")
         # Cabeçalhos
         for col in df.columns:
             pdf.cell(col_width, 10, col, border=1)
         pdf.ln()
 
+        self.log.write("Inserting data into pdf.", level="to_pdf")
         # Dados
         for _, row in df.iterrows():
             for item in row:
@@ -104,8 +108,10 @@ class DeltaCoin:
             pdf.ln()
 
         # Salvar
+        self.log.write(f"Writing pdf as > {self.pdf_path}", level="to_pdf")
         pdf.output(self.pdf_path)
-
+    
+    
     def mail(self, destinatario, assunto, corpo):
         remetente = os.getenv("EMAIL_SENDER") or ""
         senha = os.getenv("GOOGLE_APP_PASS") or ""
